@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindi Text Normalization for TTS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="title-icon">🔊</span>
+                    Hindi Text Normalization
+                </h1>
+                <p class="subtitle">Rule-Based TN Framework for TTS Systems</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="card input-section">
+                <h2 class="section-title">Input Configuration</h2>
+                
+                <!-- Language Selector -->
+                <div class="form-group">
+                    <label for="language" class="label">Language</label>
+                    <select id="language" class="select" disabled>
+                        <option value="hi-IN">Hindi (hi-IN)</option>
+                    </select>
+                    <p class="help-text">Currently supports Hindi only</p>
+                </div>
+
+                <!-- Category Selection -->
+                <div class="form-group">
+                    <label class="label">Normalization Categories</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="category-currency" value="currency" checked>
+                            <span class="checkbox-text">
+                                <span class="checkbox-title">Currency</span>
+                                <span class="checkbox-desc">₹500 → पाँच सौ रुपये</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="category-cardinal" value="cardinal" checked>
+                            <span class="checkbox-text">
+                                <span class="checkbox-title">Cardinal Numbers</span>
+                                <span class="checkbox-desc">123 → एक सौ तेईस</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Text Input -->
+                <div class="form-group">
+                    <label for="input-text" class="label">Input Text</label>
+                    <textarea 
+                        id="input-text" 
+                        class="textarea" 
+                        rows="4" 
+                        placeholder="Enter Hindi text with numbers or currency... (e.g., मेरे पास ₹500 हैं और मुझे 25 किताबें चाहिए)"
+                    ></textarea>
+                </div>
+
+                <!-- Action Button -->
+                <button id="normalize-btn" class="btn btn-primary">
+                    <span class="btn-icon">⚡</span>
+                    Generate Normalization
+                </button>
+            </section>
+
+            <!-- Output Section -->
+            <section class="card output-section" id="output-section" style="display: none;">
+                <h2 class="section-title">Normalization Results</h2>
+
+                <!-- Normalized Text -->
+                <div class="result-group">
+                    <h3 class="result-title">
+                        <span class="result-icon">📝</span>
+                        Normalized Text
+                    </h3>
+                    <div class="result-content" id="normalized-text"></div>
+                </div>
+
+                <!-- SSML Output -->
+                <div class="result-group">
+                    <h3 class="result-title">
+                        <span class="result-icon">🔖</span>
+                        SSML Output
+                    </h3>
+                    <pre class="result-code" id="ssml-output"></pre>
+                    <button class="btn btn-secondary btn-sm" id="copy-ssml-btn">
+                        Copy SSML
+                    </button>
+                </div>
+
+                <!-- DFA Information -->
+                <div class="result-group">
+                    <h3 class="result-title">
+                        <span class="result-icon">🔄</span>
+                        DFA State Transitions
+                    </h3>
+                    <div id="dfa-info" class="dfa-container"></div>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section class="card error-section" id="error-section" style="display: none;">
+                <h3 class="error-title">⚠️ Error</h3>
+                <p class="error-message" id="error-message"></p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Rule-Based Text Normalization Framework • DFA-Driven • Production-Grade TTS</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
