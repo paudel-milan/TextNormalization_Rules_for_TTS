@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
@@ -27,14 +29,15 @@
             <!-- Input Section -->
             <section class="card input-section">
                 <h2 class="section-title">Input Configuration</h2>
-                
+
                 <!-- Language Selector -->
                 <div class="form-group">
                     <label for="language" class="label">Language</label>
-                    <select id="language" class="select" disabled>
+                    <select id="language" class="select">
                         <option value="hi-IN">Hindi (hi-IN)</option>
+                        <option value="ne-NP">Nepali (ne-NP)</option>
                     </select>
-                    <p class="help-text">Currently supports Hindi only</p>
+                    <p class="help-text">Select language for normalization</p>
                 </div>
 
                 <!-- Category Selection -->
@@ -55,18 +58,49 @@
                                 <span class="checkbox-desc">123 → एक सौ तेईस</span>
                             </span>
                         </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="category-unit" value="unit" checked>
+                            <span class="checkbox-text">
+                                <span class="checkbox-title">Units</span>
+                                <span class="checkbox-desc">5kg → पाँच किलोग्राम</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="category-date" value="date" checked>
+                            <span class="checkbox-text">
+                                <span class="checkbox-title">Date</span>
+                                <span class="checkbox-desc">15/08/2024 → पंद्रह अगस्त दो हज़ार चौबीस</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="category-time" value="time" checked>
+                            <span class="checkbox-text">
+                                <span class="checkbox-title">Time</span>
+                                <span class="checkbox-desc">10:30 → दस बजकर तीस मिनट</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="category-ordinal" value="ordinal" checked>
+                            <span class="checkbox-text">
+                                <span class="checkbox-title">Ordinal</span>
+                                <span class="checkbox-desc">5th → पाँचवाँ</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="category-named_entity" value="named_entity" checked>
+                            <span class="checkbox-text">
+                                <span class="checkbox-title">Named Entity</span>
+                                <span class="checkbox-desc">डॉ. → डॉक्टर</span>
+                            </span>
+                        </label>
                     </div>
                 </div>
 
                 <!-- Text Input -->
                 <div class="form-group">
                     <label for="input-text" class="label">Input Text</label>
-                    <textarea 
-                        id="input-text" 
-                        class="textarea" 
-                        rows="4" 
-                        placeholder="Enter Hindi text with numbers or currency... (e.g., मेरे पास ₹500 हैं और मुझे 25 किताबें चाहिए)"
-                    ></textarea>
+                    <textarea id="input-text" class="textarea" rows="4"
+                        placeholder="Enter Hindi text... (e.g., डॉ. शर्मा ने 15/08/2024 को सुबह 10:30 बजे ₹500 में 5kg चावल ख़रीदा)"></textarea>
                 </div>
 
                 <!-- Action Button -->
@@ -126,4 +160,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

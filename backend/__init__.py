@@ -1,2 +1,3 @@
-# Backend Module
-__version__ = '1.0.0'
+"""
+Backend Package — Hindi/Nepali Text Normalization for TTS.
+"""

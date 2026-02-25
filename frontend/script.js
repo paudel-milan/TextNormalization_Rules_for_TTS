@@ -17,17 +17,16 @@ const dfaInfoEl = document.getElementById('dfa-info');
 const errorMessageEl = document.getElementById('error-message');
 const copySsmlBtn = document.getElementById('copy-ssml-btn');
 
-// Category checkboxes
-const currencyCheckbox = document.getElementById('category-currency');
-const cardinalCheckbox = document.getElementById('category-cardinal');
-
 /**
- * Get selected categories from checkboxes
+ * Get selected categories from all checkboxes
+ * Dynamically collects any checkbox whose id starts with "category-"
  */
 function getSelectedCategories() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="category-"]');
     const categories = [];
-    if (currencyCheckbox.checked) categories.push('currency');
-    if (cardinalCheckbox.checked) categories.push('cardinal');
+    checkboxes.forEach(cb => {
+        if (cb.checked) categories.push(cb.value);
+    });
     return categories;
 }
 
@@ -107,7 +106,8 @@ async function normalizeText() {
             },
             body: JSON.stringify({
                 text: text,
-                categories: categories
+                categories: categories,
+                language: document.getElementById('language').value
             })
         });
 
