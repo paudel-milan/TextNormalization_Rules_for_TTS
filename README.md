@@ -560,13 +560,6 @@ This project demonstrates:
 - [ ] Roman numeral conversion
 - [ ] Percentage handling (e.g., "50%" → "पचास प्रतिशत")
 
-## 📄 License
-
-This project is created for educational and internship purposes.
-
-## 👨‍💻 Author
-
-Created as a production-grade internship project demonstrating rule-based text normalization for enterprise TTS systems.
 
 ---
 
