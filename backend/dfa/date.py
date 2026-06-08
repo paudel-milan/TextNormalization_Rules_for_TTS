@@ -17,10 +17,11 @@ class DateDFA(BaseDFA):
         START → DAY → SEPARATOR → MONTH → SEPARATOR → YEAR → END
     """
 
-    def __init__(self):
+    def __init__(self, pattern=None):
         super().__init__()
         self.states = ['START', 'DAY', 'SEPARATOR', 'MONTH', 'SEPARATOR', 'YEAR', 'END']
-        self._pattern = re.compile(r'^(\d{1,2})([/\-\.])(\d{1,2})\2(\d{2,4})$')
+        default_pattern = r'^(\d{1,2})([/\-\.])(\d{1,2})\2(\d{2,4})$'
+        self._pattern = re.compile(pattern or default_pattern)
 
     def match(self, text):
         states_traversed = ['START']

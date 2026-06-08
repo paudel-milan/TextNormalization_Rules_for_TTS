@@ -17,14 +17,15 @@ class CardinalDFA(BaseDFA):
         START → DIGIT → [DIGIT]* → END
     """
 
-    def __init__(self):
+    def __init__(self, pattern=None):
         super().__init__()
         self.states = ['START', 'DIGIT', 'END']
+        self._pattern = re.compile(pattern or r'^\d+$')
 
     def match(self, text):
         states_traversed = ['START']
 
-        if re.match(r'^\d+$', text):
+        if self._pattern.match(text):
             states_traversed.append('DIGIT')
             for _ in text[1:]:
                 states_traversed.append('DIGIT')

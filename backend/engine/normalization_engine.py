@@ -40,12 +40,16 @@ class NormalizationEngine:
         self.resources = self._load_language_resources()
 
         # ── DFAs ──────────────────────────────────────────────────
-        self.currency_dfa = CurrencyDFA()
-        self.cardinal_dfa = CardinalDFA()
-        self.unit_dfa = UnitDFA()
-        self.date_dfa = DateDFA()
-        self.time_dfa = TimeDFA()
-        self.ordinal_dfa = OrdinalDFA()
+        patterns = self.resources.get('patterns', {})
+        self.currency_dfa = CurrencyDFA(patterns={
+            'currency_symbol': patterns.get('currency_symbol'),
+            'currency_strip': patterns.get('currency_strip')
+        })
+        self.cardinal_dfa = CardinalDFA(pattern=patterns.get('cardinal'))
+        self.unit_dfa = UnitDFA(pattern=patterns.get('unit'))
+        self.date_dfa = DateDFA(pattern=patterns.get('date'))
+        self.time_dfa = TimeDFA(pattern=patterns.get('time'))
+        self.ordinal_dfa = OrdinalDFA(pattern=patterns.get('ordinal'))
 
         ne_keys = list(
             self.resources.get('named_entities', {}).get('abbreviations', {}).keys()

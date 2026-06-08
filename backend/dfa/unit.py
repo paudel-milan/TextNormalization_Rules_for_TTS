@@ -27,12 +27,15 @@ class UnitDFA(BaseDFA):
         r'|किमी|मी|सेमी|किग्रा|ग्रा|ली|मिली)'
     )
 
-    def __init__(self):
+    def __init__(self, pattern=None):
         super().__init__()
         self.states = ['START', 'NUMBER', 'UNIT_SYMBOL', 'END']
-        self._pattern = re.compile(
-            r'^(\d+(?:\.\d+)?)\s*(' + self.UNIT_PATTERN + r')$'
-        )
+        if pattern:
+            self._pattern = re.compile(pattern)
+        else:
+            self._pattern = re.compile(
+                r'^(\d+(?:\.\d+)?)\s*(' + self.UNIT_PATTERN + r')$'
+            )
 
     def match(self, text):
         states_traversed = ['START']

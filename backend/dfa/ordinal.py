@@ -18,13 +18,11 @@ class OrdinalDFA(BaseDFA):
         START → DIGIT → ORDINAL_SUFFIX → END
     """
 
-    def __init__(self):
+    def __init__(self, pattern=None):
         super().__init__()
         self.states = ['START', 'DIGIT', 'ORDINAL_SUFFIX', 'END']
-        self._pattern = re.compile(
-            r'^(\d+)(st|nd|rd|th|ला|रा|था|वाँ|वां|वीं)$',
-            re.IGNORECASE,
-        )
+        default_pattern = r'^(\d+)(st|nd|rd|th|ला|रा|था|वाँ|वां|वीं)$'
+        self._pattern = re.compile(pattern or default_pattern, re.IGNORECASE)
 
     def match(self, text):
         states_traversed = ['START']

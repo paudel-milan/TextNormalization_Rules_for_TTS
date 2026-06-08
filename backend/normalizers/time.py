@@ -12,16 +12,24 @@ class TimeNormalizer:
     def __init__(self, resources):
         self.converter = NumberToWordsConverter(resources)
         self.time_res = resources.get('time', {})
+        self.patterns = resources.get('patterns', {})
+        self.rules = resources.get('rules', {})
 
     def normalize(self, text, hour=None, minute=None, second=None, period=None):
         """10:30 → दस बजकर तीस मिनट"""
         if not (hour and minute):
-            m = re.match(r'(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM)?', text, re.IGNORECASE)
+            pat = self.patterns.get('time', r'(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM)?')
+            m = re.match(pat, text, re.IGNORECASE)
             if not m:
                 return text
-            hour, minute = m.group(1), m.group(2)
-            second = m.group(3)
-            period = m.group(4)
+            # Ensure we map groups correctly if the pattern changes significantly,
+            # but for now we assume the standard [hour, minute, second, period] groups.
+            try:
+                hour, minute = m.group(1), m.group(2)
+                second = m.group(3)
+                period = m.group(4)
+            except IndexError:
+                pass
 
         hour_int = int(hour)
         minute_int = int(minute)
@@ -34,9 +42,10 @@ class TimeNormalizer:
             if p == 'AM':
                 period_prefix = self.time_res.get('periods', {}).get('AM', 'सुबह')
             else:
-                if hour_int < 4 or hour_int == 12:
+                thresholds = self.rules.get('time', {}).get('period_thresholds', {'afternoon': 4, 'evening': 7, 'night': 12})
+                if hour_int < thresholds.get('afternoon', 4) or hour_int == 12:
                     period_prefix = self.time_res.get('periods', {}).get('PM_afternoon', 'दोपहर')
-                elif hour_int < 7:
+                elif hour_int < thresholds.get('evening', 7):
                     period_prefix = self.time_res.get('periods', {}).get('PM_evening', 'शाम')
                 else:
                     period_prefix = self.time_res.get('periods', {}).get('PM_night', 'रात')

@@ -15,13 +15,15 @@ class NumberToWordsConverter:
         self.ones = resources['numbers']['ones']
         self.tens = resources['numbers']['tens']
         self.scales = resources['numbers']['scales']
+        self.rules = resources.get('rules', {}).get('number', {})
+        self.minus_word = self.rules.get('minus_word', 'माइनस')
 
     def convert(self, number):
         """Convert an integer to its spoken-word representation."""
         if number == 0:
             return self.ones['0']
         if number < 0:
-            return 'माइनस ' + self.convert(-number)
+            return f"{self.minus_word} {self.convert(-number)}"
         if number < 100:
             return self._below_hundred(number)
         if number < 1000:

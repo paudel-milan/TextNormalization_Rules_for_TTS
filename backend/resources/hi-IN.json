@@ -258,5 +258,28 @@
             "आ.आ.पा.": "आम आदमी पार्टी",
             "रा.स्व.सं.": "राष्ट्रीय स्वयंसेवक संघ"
         }
+    },
+    "patterns": {
+        "date": "^(\\d{1,2})([/\\-\\.])(\\d{1,2})\\2(\\d{2,4})$",
+        "time": "^(\\d{1,2}):(\\d{2})(?::(\\d{2}))?\\s*(AM|PM|am|pm|A\\.M\\.|P\\.M\\.)?$",
+        "currency_symbol": "^[₹रु]|^Rs\\.?|^INR",
+        "currency_strip": "^[₹रुRsINR.\\s]+",
+        "cardinal": "^\\d+$",
+        "ordinal": "^(\\d+)(st|nd|rd|th|ला|रा|था|वाँ|वां|वीं)$",
+        "unit": "^(\\d+(?:\\.\\d+)?)\\s*(kg|g|mg|km|m|cm|mm|mi|ft|in|l|ml|kl|°C|°F|K|kmph|mph|m/s|Hz|kHz|MHz|GHz|W|kW|MW|V|A|KB|MB|GB|TB|किमी|मी|सेमी|किग्रा|ग्रा|ली|मिली)$"
+    },
+    "rules": {
+        "time": {
+            "period_thresholds": {
+                "afternoon": 4,
+                "evening": 7,
+                "night": 12
+            }
+        },
+        "number": {
+            "minus_word": "माइनस",
+            "decimal_word": "दशमलव",
+            "system": "indian"
+        }
     }
 }

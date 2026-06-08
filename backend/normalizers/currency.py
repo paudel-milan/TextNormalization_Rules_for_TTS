@@ -12,10 +12,12 @@ class CurrencyNormalizer:
     def __init__(self, resources):
         self.converter = NumberToWordsConverter(resources)
         self.currency_units = resources['currency']
+        self.patterns = resources.get('patterns', {})
 
     def normalize(self, text):
         """₹500.50 → पाँच सौ रुपये पचास पैसे"""
-        amount_text = re.sub(r'^[₹रुRsINR.\s]+', '', text)
+        strip_pat = self.patterns.get('currency_strip', r'^[₹रुRsINR.\s]+')
+        amount_text = re.sub(strip_pat, '', text)
         amount_text = amount_text.replace(',', '')  # handle 1,00,000
 
         if '.' in amount_text:

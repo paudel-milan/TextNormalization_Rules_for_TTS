@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hindi Text Normalization for TTS</title>
+    <title>Hybrid Text Normalization for TTS</title>
+    <meta name="description" content="Hybrid ML + Rule-based Text Normalization Framework for TTS systems supporting Hindi, Nepali, and Tamil">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,11 +19,32 @@
             <div class="header-content">
                 <h1 class="title">
                     <span class="title-icon">🔊</span>
-                    Hindi Text Normalization
+                    Hybrid Text Normalization
                 </h1>
-                <p class="subtitle">Rule-Based TN Framework for TTS Systems</p>
+                <p class="subtitle">ML + Rule-Based TN Framework for TTS Systems</p>
             </div>
         </header>
+
+        <div style="margin-top: 30px; text-align: center;">
+            <button onclick="window.location.href='http://localhost:5173'" style="
+                background: linear-gradient(135deg, #7c3aed, #4f46e5);
+                color: #ffffff;
+                font-family: system-ui, -apple-system, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                padding: 10px 20px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 6px;
+                cursor: pointer;
+                transition: opacity 0.2s;
+            "
+            onmouseover="this.style.opacity='0.9'"
+            onmouseout="this.style.opacity='1'"
+            >
+                ⚙️ Go to Rule Generator
+            </button>
+        </div>
+
 
         <!-- Main Content -->
         <main class="main-content">
@@ -30,18 +52,43 @@
             <section class="card input-section">
                 <h2 class="section-title">Input Configuration</h2>
 
+                <!-- Mode Toggle -->
+                <div class="form-group">
+                    <label class="label">Detection Mode</label>
+                    <div class="mode-toggle" id="mode-toggle">
+                        <input type="radio" id="mode-manual" name="mode" value="manual" checked>
+                        <label for="mode-manual">
+                            <span class="mode-icon">⚙️</span> Manual Mode
+                            <span class="mode-desc">Select categories manually</span>
+                        </label>
+                        <input type="radio" id="mode-auto" name="mode" value="auto">
+                        <label for="mode-auto">
+                            <span class="mode-icon">🤖</span> Auto Detect
+                            <span class="mode-desc">ML + Rules detect categories</span>
+                        </label>
+                    </div>
+                </div>
+
                 <!-- Language Selector -->
                 <div class="form-group">
                     <label for="language" class="label">Language</label>
                     <select id="language" class="select">
                         <option value="hi-IN">Hindi (hi-IN)</option>
                         <option value="ne-NP">Nepali (ne-NP)</option>
+                        <option value="ta-IN">Tamil (ta-IN)</option>
                     </select>
                     <p class="help-text">Select language for normalization</p>
                 </div>
 
-                <!-- Category Selection -->
-                <div class="form-group">
+                <!-- Model Status (shown in Auto Detect mode) -->
+                <div class="model-status not-loaded" id="model-status" style="display: none;">
+                    <div class="model-status-dot"></div>
+                    <span class="model-status-text" id="model-status-text">ML Model: Checking...</span>
+                    <button class="btn-train" id="btn-train" onclick="trainModel()">Train Model</button>
+                </div>
+
+                <!-- Category Selection (shown in Manual mode) -->
+                <div class="form-group categories-section" id="categories-section">
                     <label class="label">Normalization Categories</label>
                     <div class="checkbox-group">
                         <label class="checkbox-label">
@@ -100,7 +147,7 @@
                 <div class="form-group">
                     <label for="input-text" class="label">Input Text</label>
                     <textarea id="input-text" class="textarea" rows="4"
-                        placeholder="Enter Hindi text... (e.g., डॉ. शर्मा ने 15/08/2024 को सुबह 10:30 बजे ₹500 में 5kg चावल ख़रीदा)"></textarea>
+                        placeholder="Enter text... (e.g., डॉ. शर्मा ने 15/08/2024 को सुबह 10:30 बजे ₹500 में 5kg चावल ख़रीदा)"></textarea>
                 </div>
 
                 <!-- Action Button -->
@@ -110,7 +157,60 @@
                 </button>
             </section>
 
-            <!-- Output Section -->
+            <!-- Auto Detect Results Section -->
+            <section class="card auto-detect-section" id="auto-detect-section" style="display: none;">
+                <h2 class="section-title">🤖 Auto Detection Results</h2>
+
+                <!-- Pipeline Summary Stats -->
+                <div class="pipeline-summary" id="pipeline-summary"></div>
+
+                <!-- Token Detection Table -->
+                <div class="result-group token-results">
+                    <h3 class="result-title">
+                        <span class="result-icon">🎯</span>
+                        Token Detection Breakdown
+                    </h3>
+                    <div class="token-table-wrapper">
+                        <table class="token-table" id="token-table">
+                            <thead>
+                                <tr>
+                                    <th>Token</th>
+                                    <th>Rule Category</th>
+                                    <th>ML Category</th>
+                                    <th>Final Category</th>
+                                    <th>Confidence</th>
+                                    <th>Normalized</th>
+                                </tr>
+                            </thead>
+                            <tbody id="token-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Normalized Text -->
+                <div class="result-group">
+                    <h3 class="result-title">
+                        <span class="result-icon">📝</span>
+                        Normalized Text
+                    </h3>
+                    <div class="result-content" id="auto-normalized-text"></div>
+                </div>
+
+                <!-- SSML Output -->
+                <div class="result-group">
+                    <h3 class="result-title">
+                        <span class="result-icon">🔖</span>
+                        SSML Output
+                    </h3>
+                    <pre class="result-code" id="auto-ssml-output"></pre>
+                    <button class="btn btn-secondary btn-sm" id="auto-copy-ssml-btn" onclick="copySsml('auto-ssml-output')">
+                        Copy SSML
+                    </button>
+                </div>
+            </section>
+
+            <!-- Manual Mode Output Section -->
             <section class="card output-section" id="output-section" style="display: none;">
                 <h2 class="section-title">Normalization Results</h2>
 
@@ -154,7 +254,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>Rule-Based Text Normalization Framework • DFA-Driven • Production-Grade TTS</p>
+            <p>Hybrid ML + Rule-Based Text Normalization Framework • DFA-Driven • Production-Grade TTS</p>
         </footer>
     </div>
 

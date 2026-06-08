@@ -17,12 +17,11 @@ class TimeDFA(BaseDFA):
         START → HOUR → COLON → MINUTE → [COLON → SECOND] → [PERIOD] → END
     """
 
-    def __init__(self):
+    def __init__(self, pattern=None):
         super().__init__()
         self.states = ['START', 'HOUR', 'COLON', 'MINUTE', 'COLON', 'SECOND', 'PERIOD', 'END']
-        self._pattern = re.compile(
-            r'^(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM|am|pm|A\.M\.|P\.M\.)?$'
-        )
+        default_pattern = r'^(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM|am|pm|A\.M\.|P\.M\.)?$'
+        self._pattern = re.compile(pattern or default_pattern)
 
     def match(self, text):
         states_traversed = ['START']

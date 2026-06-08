@@ -17,13 +17,16 @@ class CurrencyDFA(BaseDFA):
         START → CURRENCY_SYMBOL → INTEGER_PART → [DECIMAL_POINT → DECIMAL_PART] → END
     """
 
-    def __init__(self):
+    def __init__(self, patterns=None):
         super().__init__()
         self.states = [
             'START', 'CURRENCY_SYMBOL', 'INTEGER_PART',
             'DECIMAL_POINT', 'DECIMAL_PART', 'END',
         ]
-        self.currency_symbols = ['₹', 'रु', 'Rs', 'Rs.', 'INR']
+        self.patterns = patterns or {
+            'currency_symbol': r'^[₹रु]|^Rs\.?|^INR',
+            'currency_strip': r'^[₹रुRsINR.]+\s*'
+        }
 
     def match(self, text):
         states_traversed = ['START']
@@ -32,10 +35,11 @@ class CurrencyDFA(BaseDFA):
         clean = text.replace(',', '')
 
         # Pattern 1: ₹500 or ₹500.50
-        pattern1 = r'^[₹रु]|^Rs\.?|^INR'
+        pattern1 = self.patterns.get('currency_symbol', r'^[₹रु]|^Rs\.?|^INR')
         if re.match(pattern1, clean):
             states_traversed.append('CURRENCY_SYMBOL')
-            number_part = re.sub(r'^[₹रुRsINR.]+\s*', '', clean)
+            strip_pat = self.patterns.get('currency_strip', r'^[₹रुRsINR.]+\s*')
+            number_part = re.sub(strip_pat, '', clean)
 
             if re.match(r'^\d+', number_part):
                 states_traversed.append('INTEGER_PART')
