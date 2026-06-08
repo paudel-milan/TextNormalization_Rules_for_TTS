@@ -1,0 +1,338 @@
+{
+    "language": "ta-IN",
+    "version": "1.0",
+    "samples": [
+        {
+            "text": "அவர் கடையில் ₹500 கொடுத்தார்",
+            "tokens": [
+                {"token": "அவர்", "category": "text"},
+                {"token": "கடையில்", "category": "text"},
+                {"token": "₹500", "category": "currency"},
+                {"token": "கொடுத்தார்", "category": "text"}
+            ]
+        },
+        {
+            "text": "கூட்டம் 15/08/2024 அன்று 10:30 மணிக்கு",
+            "tokens": [
+                {"token": "கூட்டம்", "category": "text"},
+                {"token": "15/08/2024", "category": "date"},
+                {"token": "அன்று", "category": "text"},
+                {"token": "10:30", "category": "time"},
+                {"token": "மணிக்கு", "category": "text"}
+            ]
+        },
+        {
+            "text": "Dr. ராமன் 5kg அரிசி வாங்கினார்",
+            "tokens": [
+                {"token": "Dr.", "category": "named_entity"},
+                {"token": "ராமன்", "category": "text"},
+                {"token": "5kg", "category": "unit"},
+                {"token": "அரிசி", "category": "text"},
+                {"token": "வாங்கினார்", "category": "text"}
+            ]
+        },
+        {
+            "text": "அவர் 3rd மாடியில் இருக்கிறார்",
+            "tokens": [
+                {"token": "அவர்", "category": "text"},
+                {"token": "3rd", "category": "ordinal"},
+                {"token": "மாடியில்", "category": "text"},
+                {"token": "இருக்கிறார்", "category": "text"}
+            ]
+        },
+        {
+            "text": "மொத்தம் 150 பேர் வந்தனர்",
+            "tokens": [
+                {"token": "மொத்தம்", "category": "text"},
+                {"token": "150", "category": "cardinal"},
+                {"token": "பேர்", "category": "text"},
+                {"token": "வந்தனர்", "category": "text"}
+            ]
+        },
+        {
+            "text": "Rs.2500 மருந்து 01/03/2025 வரை சாப்பிடுங்கள்",
+            "tokens": [
+                {"token": "Rs.2500", "category": "currency"},
+                {"token": "மருந்து", "category": "text"},
+                {"token": "01/03/2025", "category": "date"},
+                {"token": "வரை", "category": "text"},
+                {"token": "சாப்பிடுங்கள்", "category": "text"}
+            ]
+        },
+        {
+            "text": "ரயில் காலை 6:45 மணிக்கு வரும்",
+            "tokens": [
+                {"token": "ரயில்", "category": "text"},
+                {"token": "காலை", "category": "text"},
+                {"token": "6:45", "category": "time"},
+                {"token": "மணிக்கு", "category": "text"},
+                {"token": "வரும்", "category": "text"}
+            ]
+        },
+        {
+            "text": "சென்னையிலிருந்து மதுரை 460km தூரம்",
+            "tokens": [
+                {"token": "சென்னையிலிருந்து", "category": "text"},
+                {"token": "மதுரை", "category": "text"},
+                {"token": "460km", "category": "unit"},
+                {"token": "தூரம்", "category": "text"}
+            ]
+        },
+        {
+            "text": "5வது அத்தியாயம் படியுங்கள்",
+            "tokens": [
+                {"token": "5வது", "category": "ordinal"},
+                {"token": "அத்தியாயம்", "category": "text"},
+                {"token": "படியுங்கள்", "category": "text"}
+            ]
+        },
+        {
+            "text": "தேர்வு 25/12/2024 அன்று நடக்கும்",
+            "tokens": [
+                {"token": "தேர்வு", "category": "text"},
+                {"token": "25/12/2024", "category": "date"},
+                {"token": "அன்று", "category": "text"},
+                {"token": "நடக்கும்", "category": "text"}
+            ]
+        },
+        {
+            "text": "Prof. குமார் நாளை வருவார்",
+            "tokens": [
+                {"token": "Prof.", "category": "named_entity"},
+                {"token": "குமார்", "category": "text"},
+                {"token": "நாளை", "category": "text"},
+                {"token": "வருவார்", "category": "text"}
+            ]
+        },
+        {
+            "text": "₹50 பேனா மற்றும் ₹200 புத்தகம்",
+            "tokens": [
+                {"token": "₹50", "category": "currency"},
+                {"token": "பேனா", "category": "text"},
+                {"token": "மற்றும்", "category": "text"},
+                {"token": "₹200", "category": "currency"},
+                {"token": "புத்தகம்", "category": "text"}
+            ]
+        },
+        {
+            "text": "2024 இல் இந்தியாவின் மக்கள்தொகை 1400000000",
+            "tokens": [
+                {"token": "2024", "category": "cardinal"},
+                {"token": "இல்", "category": "text"},
+                {"token": "இந்தியாவின்", "category": "text"},
+                {"token": "மக்கள்தொகை", "category": "text"},
+                {"token": "1400000000", "category": "cardinal"}
+            ]
+        },
+        {
+            "text": "வெப்பநிலை 42°C ஆக இருந்தது",
+            "tokens": [
+                {"token": "வெப்பநிலை", "category": "text"},
+                {"token": "42°C", "category": "unit"},
+                {"token": "ஆக", "category": "text"},
+                {"token": "இருந்தது", "category": "text"}
+            ]
+        },
+        {
+            "text": "மதியம் 2:00 மணிக்கு மதிய உணவு",
+            "tokens": [
+                {"token": "மதியம்", "category": "text"},
+                {"token": "2:00", "category": "time"},
+                {"token": "மணிக்கு", "category": "text"},
+                {"token": "மதிய", "category": "text"},
+                {"token": "உணவு", "category": "text"}
+            ]
+        },
+        {
+            "text": "1st பரிசு ₹10000 ஆகும்",
+            "tokens": [
+                {"token": "1st", "category": "ordinal"},
+                {"token": "பரிசு", "category": "text"},
+                {"token": "₹10000", "category": "currency"},
+                {"token": "ஆகும்", "category": "text"}
+            ]
+        },
+        {
+            "text": "Mrs. ராஜா 10/01/2025 அன்று வருவார்",
+            "tokens": [
+                {"token": "Mrs.", "category": "named_entity"},
+                {"token": "ராஜா", "category": "text"},
+                {"token": "10/01/2025", "category": "date"},
+                {"token": "அன்று", "category": "text"},
+                {"token": "வருவார்", "category": "text"}
+            ]
+        },
+        {
+            "text": "500ml பால் மற்றும் 2kg மாவு வாங்குங்கள்",
+            "tokens": [
+                {"token": "500ml", "category": "unit"},
+                {"token": "பால்", "category": "text"},
+                {"token": "மற்றும்", "category": "text"},
+                {"token": "2kg", "category": "unit"},
+                {"token": "மாவு", "category": "text"},
+                {"token": "வாங்குங்கள்", "category": "text"}
+            ]
+        },
+        {
+            "text": "இரவு 11:00 மணிக்கு அனைவரும் தூங்கினர்",
+            "tokens": [
+                {"token": "இரவு", "category": "text"},
+                {"token": "11:00", "category": "time"},
+                {"token": "மணிக்கு", "category": "text"},
+                {"token": "அனைவரும்", "category": "text"},
+                {"token": "தூங்கினர்", "category": "text"}
+            ]
+        },
+        {
+            "text": "வகுப்பில் 45 மாணவர்கள் உள்ளனர்",
+            "tokens": [
+                {"token": "வகுப்பில்", "category": "text"},
+                {"token": "45", "category": "cardinal"},
+                {"token": "மாணவர்கள்", "category": "text"},
+                {"token": "உள்ளனர்", "category": "text"}
+            ]
+        },
+        {
+            "text": "₹750 க்கு 10km பயணம் செய்தோம்",
+            "tokens": [
+                {"token": "₹750", "category": "currency"},
+                {"token": "க்கு", "category": "text"},
+                {"token": "10km", "category": "unit"},
+                {"token": "பயணம்", "category": "text"},
+                {"token": "செய்தோம்", "category": "text"}
+            ]
+        },
+        {
+            "text": "26/01/1950 அன்று அரசியலமைப்பு நடைமுறைக்கு வந்தது",
+            "tokens": [
+                {"token": "26/01/1950", "category": "date"},
+                {"token": "அன்று", "category": "text"},
+                {"token": "அரசியலமைப்பு", "category": "text"},
+                {"token": "நடைமுறைக்கு", "category": "text"},
+                {"token": "வந்தது", "category": "text"}
+            ]
+        },
+        {
+            "text": "4th மாடியில் 3:30 மணிக்கு சந்திப்போம்",
+            "tokens": [
+                {"token": "4th", "category": "ordinal"},
+                {"token": "மாடியில்", "category": "text"},
+                {"token": "3:30", "category": "time"},
+                {"token": "மணிக்கு", "category": "text"},
+                {"token": "சந்திப்போம்", "category": "text"}
+            ]
+        },
+        {
+            "text": "Mr. செல்வம் ₹25000 லேப்டாப் வாங்கினார்",
+            "tokens": [
+                {"token": "Mr.", "category": "named_entity"},
+                {"token": "செல்வம்", "category": "text"},
+                {"token": "₹25000", "category": "currency"},
+                {"token": "லேப்டாப்", "category": "text"},
+                {"token": "வாங்கினார்", "category": "text"}
+            ]
+        },
+        {
+            "text": "காலை 5:30 மணிக்கு யோகா செய்யுங்கள்",
+            "tokens": [
+                {"token": "காலை", "category": "text"},
+                {"token": "5:30", "category": "time"},
+                {"token": "மணிக்கு", "category": "text"},
+                {"token": "யோகா", "category": "text"},
+                {"token": "செய்யுங்கள்", "category": "text"}
+            ]
+        },
+        {
+            "text": "நான் 3 புத்தகங்கள் மற்றும் 2 நோட்டுகள் வாங்கினேன்",
+            "tokens": [
+                {"token": "நான்", "category": "text"},
+                {"token": "3", "category": "cardinal"},
+                {"token": "புத்தகங்கள்", "category": "text"},
+                {"token": "மற்றும்", "category": "text"},
+                {"token": "2", "category": "cardinal"},
+                {"token": "நோட்டுகள்", "category": "text"},
+                {"token": "வாங்கினேன்", "category": "text"}
+            ]
+        },
+        {
+            "text": "வண்டி 120kmph வேகத்தில் சென்றது",
+            "tokens": [
+                {"token": "வண்டி", "category": "text"},
+                {"token": "120kmph", "category": "unit"},
+                {"token": "வேகத்தில்", "category": "text"},
+                {"token": "சென்றது", "category": "text"}
+            ]
+        },
+        {
+            "text": "12th தேர்ச்சி 5000 மாணவர்கள் விண்ணப்பித்தனர்",
+            "tokens": [
+                {"token": "12th", "category": "ordinal"},
+                {"token": "தேர்ச்சி", "category": "text"},
+                {"token": "5000", "category": "cardinal"},
+                {"token": "மாணவர்கள்", "category": "text"},
+                {"token": "விண்ணப்பித்தனர்", "category": "text"}
+            ]
+        },
+        {
+            "text": "100g புரதப் பொடி ₹800 விலை",
+            "tokens": [
+                {"token": "100g", "category": "unit"},
+                {"token": "புரதப்", "category": "text"},
+                {"token": "பொடி", "category": "text"},
+                {"token": "₹800", "category": "currency"},
+                {"token": "விலை", "category": "text"}
+            ]
+        },
+        {
+            "text": "02/04/2025 அன்று 1000 டிக்கெட் விற்றன",
+            "tokens": [
+                {"token": "02/04/2025", "category": "date"},
+                {"token": "அன்று", "category": "text"},
+                {"token": "1000", "category": "cardinal"},
+                {"token": "டிக்கெட்", "category": "text"},
+                {"token": "விற்றன", "category": "text"}
+            ]
+        },
+        {
+            "text": "என் எடை 72kg மற்றும் உயரம் 180cm",
+            "tokens": [
+                {"token": "என்", "category": "text"},
+                {"token": "எடை", "category": "text"},
+                {"token": "72kg", "category": "unit"},
+                {"token": "மற்றும்", "category": "text"},
+                {"token": "உயரம்", "category": "text"},
+                {"token": "180cm", "category": "unit"}
+            ]
+        },
+        {
+            "text": "₹999 க்கு 500GB ஹார்ட் டிஸ்க் கிடைத்தது",
+            "tokens": [
+                {"token": "₹999", "category": "currency"},
+                {"token": "க்கு", "category": "text"},
+                {"token": "500GB", "category": "unit"},
+                {"token": "ஹார்ட்", "category": "text"},
+                {"token": "டிஸ்க்", "category": "text"},
+                {"token": "கிடைத்தது", "category": "text"}
+            ]
+        },
+        {
+            "text": "Sr. பொறியாளருக்கு ₹75000 சம்பளம்",
+            "tokens": [
+                {"token": "Sr.", "category": "named_entity"},
+                {"token": "பொறியாளருக்கு", "category": "text"},
+                {"token": "₹75000", "category": "currency"},
+                {"token": "சம்பளம்", "category": "text"}
+            ]
+        },
+        {
+            "text": "கோடையில் வெப்பநிலை 48°C ஆக உயர்ந்தது",
+            "tokens": [
+                {"token": "கோடையில்", "category": "text"},
+                {"token": "வெப்பநிலை", "category": "text"},
+                {"token": "48°C", "category": "unit"},
+                {"token": "ஆக", "category": "text"},
+                {"token": "உயர்ந்தது", "category": "text"}
+            ]
+        }
+    ]
+}

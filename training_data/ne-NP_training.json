@@ -1,0 +1,373 @@
+{
+    "language": "ne-NP",
+    "version": "1.0",
+    "samples": [
+        {
+            "text": "उसले बजारबाट रु500 को किताब किन्यो",
+            "tokens": [
+                {"token": "उसले", "category": "text"},
+                {"token": "बजारबाट", "category": "text"},
+                {"token": "रु500", "category": "currency"},
+                {"token": "को", "category": "text"},
+                {"token": "किताब", "category": "text"},
+                {"token": "किन्यो", "category": "text"}
+            ]
+        },
+        {
+            "text": "बैठक 15/08/2024 मा 10:30 बजे हुनेछ",
+            "tokens": [
+                {"token": "बैठक", "category": "text"},
+                {"token": "15/08/2024", "category": "date"},
+                {"token": "मा", "category": "text"},
+                {"token": "10:30", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "हुनेछ", "category": "text"}
+            ]
+        },
+        {
+            "text": "डॉ. शर्माले 5kg चामल किने",
+            "tokens": [
+                {"token": "डॉ.", "category": "named_entity"},
+                {"token": "शर्माले", "category": "text"},
+                {"token": "5kg", "category": "unit"},
+                {"token": "चामल", "category": "text"},
+                {"token": "किने", "category": "text"}
+            ]
+        },
+        {
+            "text": "ऊ 3rd तल्लामा बस्छ",
+            "tokens": [
+                {"token": "ऊ", "category": "text"},
+                {"token": "3rd", "category": "ordinal"},
+                {"token": "तल्लामा", "category": "text"},
+                {"token": "बस्छ", "category": "text"}
+            ]
+        },
+        {
+            "text": "जम्मा 150 जना आए",
+            "tokens": [
+                {"token": "जम्मा", "category": "text"},
+                {"token": "150", "category": "cardinal"},
+                {"token": "जना", "category": "text"},
+                {"token": "आए", "category": "text"}
+            ]
+        },
+        {
+            "text": "NPR2500 को औषधि 01/03/2025 सम्म खानुहोस्",
+            "tokens": [
+                {"token": "NPR2500", "category": "currency"},
+                {"token": "को", "category": "text"},
+                {"token": "औषधि", "category": "text"},
+                {"token": "01/03/2025", "category": "date"},
+                {"token": "सम्म", "category": "text"},
+                {"token": "खानुहोस्", "category": "text"}
+            ]
+        },
+        {
+            "text": "श्री राम 25/12/2024 मा आउनुहुन्छ",
+            "tokens": [
+                {"token": "श्री", "category": "named_entity"},
+                {"token": "राम", "category": "text"},
+                {"token": "25/12/2024", "category": "date"},
+                {"token": "मा", "category": "text"},
+                {"token": "आउनुहुन्छ", "category": "text"}
+            ]
+        },
+        {
+            "text": "रेल बिहान 6:45 बजे आउनेछ",
+            "tokens": [
+                {"token": "रेल", "category": "text"},
+                {"token": "बिहान", "category": "text"},
+                {"token": "6:45", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "आउनेछ", "category": "text"}
+            ]
+        },
+        {
+            "text": "काठमाडौंदेखि पोखरा 200km टाढा छ",
+            "tokens": [
+                {"token": "काठमाडौंदेखि", "category": "text"},
+                {"token": "पोखरा", "category": "text"},
+                {"token": "200km", "category": "unit"},
+                {"token": "टाढा", "category": "text"},
+                {"token": "छ", "category": "text"}
+            ]
+        },
+        {
+            "text": "5औं अध्याय पढ्नुहोस्",
+            "tokens": [
+                {"token": "5औं", "category": "ordinal"},
+                {"token": "अध्याय", "category": "text"},
+                {"token": "पढ्नुहोस्", "category": "text"}
+            ]
+        },
+        {
+            "text": "रु1000 मा 2kg आलु पाइन्छ",
+            "tokens": [
+                {"token": "रु1000", "category": "currency"},
+                {"token": "मा", "category": "text"},
+                {"token": "2kg", "category": "unit"},
+                {"token": "आलु", "category": "text"},
+                {"token": "पाइन्छ", "category": "text"}
+            ]
+        },
+        {
+            "text": "कक्षामा 40 विद्यार्थी छन्",
+            "tokens": [
+                {"token": "कक्षामा", "category": "text"},
+                {"token": "40", "category": "cardinal"},
+                {"token": "विद्यार्थी", "category": "text"},
+                {"token": "छन्", "category": "text"}
+            ]
+        },
+        {
+            "text": "दिउँसो 2:00 बजे खाजा खानुहोस्",
+            "tokens": [
+                {"token": "दिउँसो", "category": "text"},
+                {"token": "2:00", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "खाजा", "category": "text"},
+                {"token": "खानुहोस्", "category": "text"}
+            ]
+        },
+        {
+            "text": "1st पुरस्कार रु10000 को हो",
+            "tokens": [
+                {"token": "1st", "category": "ordinal"},
+                {"token": "पुरस्कार", "category": "text"},
+                {"token": "रु10000", "category": "currency"},
+                {"token": "को", "category": "text"},
+                {"token": "हो", "category": "text"}
+            ]
+        },
+        {
+            "text": "Dr. थापा 10/01/2025 मा आउनुहुन्छ",
+            "tokens": [
+                {"token": "Dr.", "category": "named_entity"},
+                {"token": "थापा", "category": "text"},
+                {"token": "10/01/2025", "category": "date"},
+                {"token": "मा", "category": "text"},
+                {"token": "आउनुहुन्छ", "category": "text"}
+            ]
+        },
+        {
+            "text": "500ml दूध र 1kg चिनी ल्याउ",
+            "tokens": [
+                {"token": "500ml", "category": "unit"},
+                {"token": "दूध", "category": "text"},
+                {"token": "र", "category": "text"},
+                {"token": "1kg", "category": "unit"},
+                {"token": "चिनी", "category": "text"},
+                {"token": "ल्याउ", "category": "text"}
+            ]
+        },
+        {
+            "text": "राति 11:00 बजे सबै सुते",
+            "tokens": [
+                {"token": "राति", "category": "text"},
+                {"token": "11:00", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "सबै", "category": "text"},
+                {"token": "सुते", "category": "text"}
+            ]
+        },
+        {
+            "text": "2024 मा नेपालको जनसंख्या 30000000 छ",
+            "tokens": [
+                {"token": "2024", "category": "cardinal"},
+                {"token": "मा", "category": "text"},
+                {"token": "नेपालको", "category": "text"},
+                {"token": "जनसंख्या", "category": "text"},
+                {"token": "30000000", "category": "cardinal"},
+                {"token": "छ", "category": "text"}
+            ]
+        },
+        {
+            "text": "तापक्रम 35°C रह्यो र हावा 20kmph चल्यो",
+            "tokens": [
+                {"token": "तापक्रम", "category": "text"},
+                {"token": "35°C", "category": "unit"},
+                {"token": "रह्यो", "category": "text"},
+                {"token": "र", "category": "text"},
+                {"token": "हावा", "category": "text"},
+                {"token": "20kmph", "category": "unit"},
+                {"token": "चल्यो", "category": "text"}
+            ]
+        },
+        {
+            "text": "4th तल्लामा 3:30 बजे भेटौं",
+            "tokens": [
+                {"token": "4th", "category": "ordinal"},
+                {"token": "तल्लामा", "category": "text"},
+                {"token": "3:30", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "भेटौं", "category": "text"}
+            ]
+        },
+        {
+            "text": "रु750 मा 10km यात्रा गरे",
+            "tokens": [
+                {"token": "रु750", "category": "currency"},
+                {"token": "मा", "category": "text"},
+                {"token": "10km", "category": "unit"},
+                {"token": "यात्रा", "category": "text"},
+                {"token": "गरे", "category": "text"}
+            ]
+        },
+        {
+            "text": "26/01/2025 को गणतन्त्र दिवस हो",
+            "tokens": [
+                {"token": "26/01/2025", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "गणतन्त्र", "category": "text"},
+                {"token": "दिवस", "category": "text"},
+                {"token": "हो", "category": "text"}
+            ]
+        },
+        {
+            "text": "Mrs. गुरुङ ने 8:15 बजे फोन गरिन्",
+            "tokens": [
+                {"token": "Mrs.", "category": "named_entity"},
+                {"token": "गुरुङ", "category": "text"},
+                {"token": "ने", "category": "text"},
+                {"token": "8:15", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "फोन", "category": "text"},
+                {"token": "गरिन्", "category": "text"}
+            ]
+        },
+        {
+            "text": "मेरो तौल 65kg छ र उचाइ 170cm छ",
+            "tokens": [
+                {"token": "मेरो", "category": "text"},
+                {"token": "तौल", "category": "text"},
+                {"token": "65kg", "category": "unit"},
+                {"token": "छ", "category": "text"},
+                {"token": "र", "category": "text"},
+                {"token": "उचाइ", "category": "text"},
+                {"token": "170cm", "category": "unit"},
+                {"token": "छ", "category": "text"}
+            ]
+        },
+        {
+            "text": "10वटा सेब रु500 मा बिक्छ",
+            "tokens": [
+                {"token": "10वटा", "category": "ordinal"},
+                {"token": "सेब", "category": "text"},
+                {"token": "रु500", "category": "currency"},
+                {"token": "मा", "category": "text"},
+                {"token": "बिक्छ", "category": "text"}
+            ]
+        },
+        {
+            "text": "Prof. पौडेल 20/06/2024 मा अवकाश लिनुहुन्छ",
+            "tokens": [
+                {"token": "Prof.", "category": "named_entity"},
+                {"token": "पौडेल", "category": "text"},
+                {"token": "20/06/2024", "category": "date"},
+                {"token": "मा", "category": "text"},
+                {"token": "अवकाश", "category": "text"},
+                {"token": "लिनुहुन्छ", "category": "text"}
+            ]
+        },
+        {
+            "text": "गाडी 80kmph ले गइरहेको थियो",
+            "tokens": [
+                {"token": "गाडी", "category": "text"},
+                {"token": "80kmph", "category": "unit"},
+                {"token": "ले", "category": "text"},
+                {"token": "गइरहेको", "category": "text"},
+                {"token": "थियो", "category": "text"}
+            ]
+        },
+        {
+            "text": "2nd परीक्षा 07/02/2025 मा हुनेछ",
+            "tokens": [
+                {"token": "2nd", "category": "ordinal"},
+                {"token": "परीक्षा", "category": "text"},
+                {"token": "07/02/2025", "category": "date"},
+                {"token": "मा", "category": "text"},
+                {"token": "हुनेछ", "category": "text"}
+            ]
+        },
+        {
+            "text": "100g प्रोटिन पाउडर रु800 मा पाइन्छ",
+            "tokens": [
+                {"token": "100g", "category": "unit"},
+                {"token": "प्रोटिन", "category": "text"},
+                {"token": "पाउडर", "category": "text"},
+                {"token": "रु800", "category": "currency"},
+                {"token": "मा", "category": "text"},
+                {"token": "पाइन्छ", "category": "text"}
+            ]
+        },
+        {
+            "text": "बिहान 7:00 बजे व्यायाम गर",
+            "tokens": [
+                {"token": "बिहान", "category": "text"},
+                {"token": "7:00", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "व्यायाम", "category": "text"},
+                {"token": "गर", "category": "text"}
+            ]
+        },
+        {
+            "text": "मैले 3 किताब र 2 कापी किनें",
+            "tokens": [
+                {"token": "मैले", "category": "text"},
+                {"token": "3", "category": "cardinal"},
+                {"token": "किताब", "category": "text"},
+                {"token": "र", "category": "text"},
+                {"token": "2", "category": "cardinal"},
+                {"token": "कापी", "category": "text"},
+                {"token": "किनें", "category": "text"}
+            ]
+        },
+        {
+            "text": "रु350 को खाना र रु100 को पानी",
+            "tokens": [
+                {"token": "रु350", "category": "currency"},
+                {"token": "को", "category": "text"},
+                {"token": "खाना", "category": "text"},
+                {"token": "र", "category": "text"},
+                {"token": "रु100", "category": "currency"},
+                {"token": "को", "category": "text"},
+                {"token": "पानी", "category": "text"}
+            ]
+        },
+        {
+            "text": "12th उत्तीर्ण 3000 उम्मेदवारले आवेदन गरे",
+            "tokens": [
+                {"token": "12th", "category": "ordinal"},
+                {"token": "उत्तीर्ण", "category": "text"},
+                {"token": "3000", "category": "cardinal"},
+                {"token": "उम्मेदवारले", "category": "text"},
+                {"token": "आवेदन", "category": "text"},
+                {"token": "गरे", "category": "text"}
+            ]
+        },
+        {
+            "text": "Mr. बस्नेत ने रु25000 को कम्प्युटर किने",
+            "tokens": [
+                {"token": "Mr.", "category": "named_entity"},
+                {"token": "बस्नेत", "category": "text"},
+                {"token": "ने", "category": "text"},
+                {"token": "रु25000", "category": "currency"},
+                {"token": "को", "category": "text"},
+                {"token": "कम्प्युटर", "category": "text"},
+                {"token": "किने", "category": "text"}
+            ]
+        },
+        {
+            "text": "साँझ 5:45 बजे 3km दौड लगाउ",
+            "tokens": [
+                {"token": "साँझ", "category": "text"},
+                {"token": "5:45", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "3km", "category": "unit"},
+                {"token": "दौड", "category": "text"},
+                {"token": "लगाउ", "category": "text"}
+            ]
+        }
+    ]
+}

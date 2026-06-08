@@ -1,0 +1,717 @@
+{
+    "language": "hi-IN",
+    "version": "1.0",
+    "samples": [
+        {
+            "text": "उसने बाजार से ₹500 की किताबें खरीदीं",
+            "tokens": [
+                {"token": "उसने", "category": "text"},
+                {"token": "बाजार", "category": "text"},
+                {"token": "से", "category": "text"},
+                {"token": "₹500", "category": "currency"},
+                {"token": "की", "category": "text"},
+                {"token": "किताबें", "category": "text"},
+                {"token": "खरीदीं", "category": "text"}
+            ]
+        },
+        {
+            "text": "मीटिंग 15/08/2024 को 10:30 बजे है",
+            "tokens": [
+                {"token": "मीटिंग", "category": "text"},
+                {"token": "15/08/2024", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "10:30", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "डॉ. शर्मा ने 5kg चावल खरीदा",
+            "tokens": [
+                {"token": "डॉ.", "category": "named_entity"},
+                {"token": "शर्मा", "category": "text"},
+                {"token": "ने", "category": "text"},
+                {"token": "5kg", "category": "unit"},
+                {"token": "चावल", "category": "text"},
+                {"token": "खरीदा", "category": "text"}
+            ]
+        },
+        {
+            "text": "वह 3rd मंजिल पर रहता है",
+            "tokens": [
+                {"token": "वह", "category": "text"},
+                {"token": "3rd", "category": "ordinal"},
+                {"token": "मंजिल", "category": "text"},
+                {"token": "पर", "category": "text"},
+                {"token": "रहता", "category": "text"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "कुल 150 लोग आए थे",
+            "tokens": [
+                {"token": "कुल", "category": "text"},
+                {"token": "150", "category": "cardinal"},
+                {"token": "लोग", "category": "text"},
+                {"token": "आए", "category": "text"},
+                {"token": "थे", "category": "text"}
+            ]
+        },
+        {
+            "text": "Rs.2500 की दवाई 01/03/2025 तक खाएं",
+            "tokens": [
+                {"token": "Rs.2500", "category": "currency"},
+                {"token": "की", "category": "text"},
+                {"token": "दवाई", "category": "text"},
+                {"token": "01/03/2025", "category": "date"},
+                {"token": "तक", "category": "text"},
+                {"token": "खाएं", "category": "text"}
+            ]
+        },
+        {
+            "text": "श्री मोहन ने ₹1000 दान दिए",
+            "tokens": [
+                {"token": "श्री", "category": "named_entity"},
+                {"token": "मोहन", "category": "text"},
+                {"token": "ने", "category": "text"},
+                {"token": "₹1000", "category": "currency"},
+                {"token": "दान", "category": "text"},
+                {"token": "दिए", "category": "text"}
+            ]
+        },
+        {
+            "text": "ट्रेन सुबह 6:45 बजे आएगी",
+            "tokens": [
+                {"token": "ट्रेन", "category": "text"},
+                {"token": "सुबह", "category": "text"},
+                {"token": "6:45", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "आएगी", "category": "text"}
+            ]
+        },
+        {
+            "text": "दिल्ली से जयपुर 280km दूर है",
+            "tokens": [
+                {"token": "दिल्ली", "category": "text"},
+                {"token": "से", "category": "text"},
+                {"token": "जयपुर", "category": "text"},
+                {"token": "280km", "category": "unit"},
+                {"token": "दूर", "category": "text"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "5वाँ अध्याय पढ़ें",
+            "tokens": [
+                {"token": "5वाँ", "category": "ordinal"},
+                {"token": "अध्याय", "category": "text"},
+                {"token": "पढ़ें", "category": "text"}
+            ]
+        },
+        {
+            "text": "परीक्षा 25/12/2024 को होगी",
+            "tokens": [
+                {"token": "परीक्षा", "category": "text"},
+                {"token": "25/12/2024", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "होगी", "category": "text"}
+            ]
+        },
+        {
+            "text": "प्रो. गुप्ता कल आएंगे",
+            "tokens": [
+                {"token": "प्रो.", "category": "named_entity"},
+                {"token": "गुप्ता", "category": "text"},
+                {"token": "कल", "category": "text"},
+                {"token": "आएंगे", "category": "text"}
+            ]
+        },
+        {
+            "text": "₹50 का पेन और ₹200 की कॉपी",
+            "tokens": [
+                {"token": "₹50", "category": "currency"},
+                {"token": "का", "category": "text"},
+                {"token": "पेन", "category": "text"},
+                {"token": "और", "category": "text"},
+                {"token": "₹200", "category": "currency"},
+                {"token": "की", "category": "text"},
+                {"token": "कॉपी", "category": "text"}
+            ]
+        },
+        {
+            "text": "2024 में भारत की जनसंख्या 1400000000 है",
+            "tokens": [
+                {"token": "2024", "category": "cardinal"},
+                {"token": "में", "category": "text"},
+                {"token": "भारत", "category": "text"},
+                {"token": "की", "category": "text"},
+                {"token": "जनसंख्या", "category": "text"},
+                {"token": "1400000000", "category": "cardinal"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "तापमान 42°C रहा और हवा 15kmph चली",
+            "tokens": [
+                {"token": "तापमान", "category": "text"},
+                {"token": "42°C", "category": "unit"},
+                {"token": "रहा", "category": "text"},
+                {"token": "और", "category": "text"},
+                {"token": "हवा", "category": "text"},
+                {"token": "15kmph", "category": "unit"},
+                {"token": "चली", "category": "text"}
+            ]
+        },
+        {
+            "text": "दोपहर 2:00 बजे लंच होगा",
+            "tokens": [
+                {"token": "दोपहर", "category": "text"},
+                {"token": "2:00", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "लंच", "category": "text"},
+                {"token": "होगा", "category": "text"}
+            ]
+        },
+        {
+            "text": "1st प्राइज ₹10000 का है",
+            "tokens": [
+                {"token": "1st", "category": "ordinal"},
+                {"token": "प्राइज", "category": "text"},
+                {"token": "₹10000", "category": "currency"},
+                {"token": "का", "category": "text"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "Mrs. शर्मा 10/01/2025 को आएंगी",
+            "tokens": [
+                {"token": "Mrs.", "category": "named_entity"},
+                {"token": "शर्मा", "category": "text"},
+                {"token": "10/01/2025", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "आएंगी", "category": "text"}
+            ]
+        },
+        {
+            "text": "500ml दूध और 2kg आटा लाओ",
+            "tokens": [
+                {"token": "500ml", "category": "unit"},
+                {"token": "दूध", "category": "text"},
+                {"token": "और", "category": "text"},
+                {"token": "2kg", "category": "unit"},
+                {"token": "आटा", "category": "text"},
+                {"token": "लाओ", "category": "text"}
+            ]
+        },
+        {
+            "text": "11:59 पर नया साल शुरू होगा",
+            "tokens": [
+                {"token": "11:59", "category": "time"},
+                {"token": "पर", "category": "text"},
+                {"token": "नया", "category": "text"},
+                {"token": "साल", "category": "text"},
+                {"token": "शुरू", "category": "text"},
+                {"token": "होगा", "category": "text"}
+            ]
+        },
+        {
+            "text": "कक्षा में 45 विद्यार्थी हैं",
+            "tokens": [
+                {"token": "कक्षा", "category": "text"},
+                {"token": "में", "category": "text"},
+                {"token": "45", "category": "cardinal"},
+                {"token": "विद्यार्थी", "category": "text"},
+                {"token": "हैं", "category": "text"}
+            ]
+        },
+        {
+            "text": "Smt. कमला ने ₹5000 जमा किए",
+            "tokens": [
+                {"token": "Smt.", "category": "named_entity"},
+                {"token": "कमला", "category": "text"},
+                {"token": "ने", "category": "text"},
+                {"token": "₹5000", "category": "currency"},
+                {"token": "जमा", "category": "text"},
+                {"token": "किए", "category": "text"}
+            ]
+        },
+        {
+            "text": "4th मंजिल पर 3:30 बजे मिलें",
+            "tokens": [
+                {"token": "4th", "category": "ordinal"},
+                {"token": "मंजिल", "category": "text"},
+                {"token": "पर", "category": "text"},
+                {"token": "3:30", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "मिलें", "category": "text"}
+            ]
+        },
+        {
+            "text": "Dr. राम 50kg वजन उठा सकते हैं",
+            "tokens": [
+                {"token": "Dr.", "category": "named_entity"},
+                {"token": "राम", "category": "text"},
+                {"token": "50kg", "category": "unit"},
+                {"token": "वजन", "category": "text"},
+                {"token": "उठा", "category": "text"},
+                {"token": "सकते", "category": "text"},
+                {"token": "हैं", "category": "text"}
+            ]
+        },
+        {
+            "text": "₹750 में 10km की दूरी तय की",
+            "tokens": [
+                {"token": "₹750", "category": "currency"},
+                {"token": "में", "category": "text"},
+                {"token": "10km", "category": "unit"},
+                {"token": "की", "category": "text"},
+                {"token": "दूरी", "category": "text"},
+                {"token": "तय", "category": "text"},
+                {"token": "की", "category": "text"}
+            ]
+        },
+        {
+            "text": "26/01/1950 को संविधान लागू हुआ",
+            "tokens": [
+                {"token": "26/01/1950", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "संविधान", "category": "text"},
+                {"token": "लागू", "category": "text"},
+                {"token": "हुआ", "category": "text"}
+            ]
+        },
+        {
+            "text": "10वीं कक्षा में 500 विद्यार्थी हैं",
+            "tokens": [
+                {"token": "10वीं", "category": "ordinal"},
+                {"token": "कक्षा", "category": "text"},
+                {"token": "में", "category": "text"},
+                {"token": "500", "category": "cardinal"},
+                {"token": "विद्यार्थी", "category": "text"},
+                {"token": "हैं", "category": "text"}
+            ]
+        },
+        {
+            "text": "फ्लाइट रात 9:15 बजे है",
+            "tokens": [
+                {"token": "फ्लाइट", "category": "text"},
+                {"token": "रात", "category": "text"},
+                {"token": "9:15", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "INR2000 का नोट बंद हुआ",
+            "tokens": [
+                {"token": "INR2000", "category": "currency"},
+                {"token": "का", "category": "text"},
+                {"token": "नोट", "category": "text"},
+                {"token": "बंद", "category": "text"},
+                {"token": "हुआ", "category": "text"}
+            ]
+        },
+        {
+            "text": "Prof. सिंह 20/06/2024 को रिटायर होंगे",
+            "tokens": [
+                {"token": "Prof.", "category": "named_entity"},
+                {"token": "सिंह", "category": "text"},
+                {"token": "20/06/2024", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "रिटायर", "category": "text"},
+                {"token": "होंगे", "category": "text"}
+            ]
+        },
+        {
+            "text": "गाड़ी 120kmph की रफ्तार से चल रही थी",
+            "tokens": [
+                {"token": "गाड़ी", "category": "text"},
+                {"token": "120kmph", "category": "unit"},
+                {"token": "की", "category": "text"},
+                {"token": "रफ्तार", "category": "text"},
+                {"token": "से", "category": "text"},
+                {"token": "चल", "category": "text"},
+                {"token": "रही", "category": "text"},
+                {"token": "थी", "category": "text"}
+            ]
+        },
+        {
+            "text": "2nd टेस्ट मैच 07/02/2025 को शुरू होगा",
+            "tokens": [
+                {"token": "2nd", "category": "ordinal"},
+                {"token": "टेस्ट", "category": "text"},
+                {"token": "मैच", "category": "text"},
+                {"token": "07/02/2025", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "शुरू", "category": "text"},
+                {"token": "होगा", "category": "text"}
+            ]
+        },
+        {
+            "text": "100g प्रोटीन पाउडर ₹800 में मिला",
+            "tokens": [
+                {"token": "100g", "category": "unit"},
+                {"token": "प्रोटीन", "category": "text"},
+                {"token": "पाउडर", "category": "text"},
+                {"token": "₹800", "category": "currency"},
+                {"token": "में", "category": "text"},
+                {"token": "मिला", "category": "text"}
+            ]
+        },
+        {
+            "text": "श्रीमती वर्मा सुबह 7:00 बजे आईं",
+            "tokens": [
+                {"token": "श्रीमती", "category": "named_entity"},
+                {"token": "वर्मा", "category": "text"},
+                {"token": "सुबह", "category": "text"},
+                {"token": "7:00", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "आईं", "category": "text"}
+            ]
+        },
+        {
+            "text": "उसकी उम्र 25 साल है और कद 175cm है",
+            "tokens": [
+                {"token": "उसकी", "category": "text"},
+                {"token": "उम्र", "category": "text"},
+                {"token": "25", "category": "cardinal"},
+                {"token": "साल", "category": "text"},
+                {"token": "है", "category": "text"},
+                {"token": "और", "category": "text"},
+                {"token": "कद", "category": "text"},
+                {"token": "175cm", "category": "unit"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "15/08/1947 को भारत स्वतंत्र हुआ",
+            "tokens": [
+                {"token": "15/08/1947", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "भारत", "category": "text"},
+                {"token": "स्वतंत्र", "category": "text"},
+                {"token": "हुआ", "category": "text"}
+            ]
+        },
+        {
+            "text": "₹350 का खाना और ₹100 का पानी",
+            "tokens": [
+                {"token": "₹350", "category": "currency"},
+                {"token": "का", "category": "text"},
+                {"token": "खाना", "category": "text"},
+                {"token": "और", "category": "text"},
+                {"token": "₹100", "category": "currency"},
+                {"token": "का", "category": "text"},
+                {"token": "पानी", "category": "text"}
+            ]
+        },
+        {
+            "text": "डॉ शुक्ला 4:30 बजे क्लिनिक में होंगे",
+            "tokens": [
+                {"token": "डॉ", "category": "named_entity"},
+                {"token": "शुक्ला", "category": "text"},
+                {"token": "4:30", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "क्लिनिक", "category": "text"},
+                {"token": "में", "category": "text"},
+                {"token": "होंगे", "category": "text"}
+            ]
+        },
+        {
+            "text": "3ला बच्चा 8th कक्षा में पढ़ता है",
+            "tokens": [
+                {"token": "3ला", "category": "ordinal"},
+                {"token": "बच्चा", "category": "text"},
+                {"token": "8th", "category": "ordinal"},
+                {"token": "कक्षा", "category": "text"},
+                {"token": "में", "category": "text"},
+                {"token": "पढ़ता", "category": "text"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "200 लोगों ने 30/11/2024 को मैराथन दौड़ी",
+            "tokens": [
+                {"token": "200", "category": "cardinal"},
+                {"token": "लोगों", "category": "text"},
+                {"token": "ने", "category": "text"},
+                {"token": "30/11/2024", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "मैराथन", "category": "text"},
+                {"token": "दौड़ी", "category": "text"}
+            ]
+        },
+        {
+            "text": "Rs.150 में 250ml का जूस मिलता है",
+            "tokens": [
+                {"token": "Rs.150", "category": "currency"},
+                {"token": "में", "category": "text"},
+                {"token": "250ml", "category": "unit"},
+                {"token": "का", "category": "text"},
+                {"token": "जूस", "category": "text"},
+                {"token": "मिलता", "category": "text"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "Shri मोदी 15/08/2024 को भाषण देंगे",
+            "tokens": [
+                {"token": "Shri", "category": "named_entity"},
+                {"token": "मोदी", "category": "text"},
+                {"token": "15/08/2024", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "भाषण", "category": "text"},
+                {"token": "देंगे", "category": "text"}
+            ]
+        },
+        {
+            "text": "बस 60kmph से चल रही थी और 8:20 बजे पहुँची",
+            "tokens": [
+                {"token": "बस", "category": "text"},
+                {"token": "60kmph", "category": "unit"},
+                {"token": "से", "category": "text"},
+                {"token": "चल", "category": "text"},
+                {"token": "रही", "category": "text"},
+                {"token": "थी", "category": "text"},
+                {"token": "और", "category": "text"},
+                {"token": "8:20", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "पहुँची", "category": "text"}
+            ]
+        },
+        {
+            "text": "7वाँ वेतन आयोग ₹18000 मूल वेतन देता है",
+            "tokens": [
+                {"token": "7वाँ", "category": "ordinal"},
+                {"token": "वेतन", "category": "text"},
+                {"token": "आयोग", "category": "text"},
+                {"token": "₹18000", "category": "currency"},
+                {"token": "मूल", "category": "text"},
+                {"token": "वेतन", "category": "text"},
+                {"token": "देता", "category": "text"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "मेरा वजन 72kg है और लंबाई 180cm है",
+            "tokens": [
+                {"token": "मेरा", "category": "text"},
+                {"token": "वजन", "category": "text"},
+                {"token": "72kg", "category": "unit"},
+                {"token": "है", "category": "text"},
+                {"token": "और", "category": "text"},
+                {"token": "लंबाई", "category": "text"},
+                {"token": "180cm", "category": "unit"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "02/04/2025 को 1000 टिकट बिके",
+            "tokens": [
+                {"token": "02/04/2025", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "1000", "category": "cardinal"},
+                {"token": "टिकट", "category": "text"},
+                {"token": "बिके", "category": "text"}
+            ]
+        },
+        {
+            "text": "Mr. कुमार ने ₹25000 का लैपटॉप खरीदा",
+            "tokens": [
+                {"token": "Mr.", "category": "named_entity"},
+                {"token": "कुमार", "category": "text"},
+                {"token": "ने", "category": "text"},
+                {"token": "₹25000", "category": "currency"},
+                {"token": "का", "category": "text"},
+                {"token": "लैपटॉप", "category": "text"},
+                {"token": "खरीदा", "category": "text"}
+            ]
+        },
+        {
+            "text": "शाम 5:45 बजे 3km दौड़ लगाओ",
+            "tokens": [
+                {"token": "शाम", "category": "text"},
+                {"token": "5:45", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "3km", "category": "unit"},
+                {"token": "दौड़", "category": "text"},
+                {"token": "लगाओ", "category": "text"}
+            ]
+        },
+        {
+            "text": "12th पास 5000 उम्मीदवारों ने आवेदन किया",
+            "tokens": [
+                {"token": "12th", "category": "ordinal"},
+                {"token": "पास", "category": "text"},
+                {"token": "5000", "category": "cardinal"},
+                {"token": "उम्मीदवारों", "category": "text"},
+                {"token": "ने", "category": "text"},
+                {"token": "आवेदन", "category": "text"},
+                {"token": "किया", "category": "text"}
+            ]
+        },
+        {
+            "text": "सुश्री प्रिया 01/07/2024 को ज्वाइन करेंगी",
+            "tokens": [
+                {"token": "सुश्री", "category": "named_entity"},
+                {"token": "प्रिया", "category": "text"},
+                {"token": "01/07/2024", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "ज्वाइन", "category": "text"},
+                {"token": "करेंगी", "category": "text"}
+            ]
+        },
+        {
+            "text": "₹1500 में 1kg बादाम मिलेंगे",
+            "tokens": [
+                {"token": "₹1500", "category": "currency"},
+                {"token": "में", "category": "text"},
+                {"token": "1kg", "category": "unit"},
+                {"token": "बादाम", "category": "text"},
+                {"token": "मिलेंगे", "category": "text"}
+            ]
+        },
+        {
+            "text": "75 साल पहले 15/08/1947 को आजादी मिली",
+            "tokens": [
+                {"token": "75", "category": "cardinal"},
+                {"token": "साल", "category": "text"},
+                {"token": "पहले", "category": "text"},
+                {"token": "15/08/1947", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "आजादी", "category": "text"},
+                {"token": "मिली", "category": "text"}
+            ]
+        },
+        {
+            "text": "हवाई जहाज 900kmph की रफ्तार से उड़ता है",
+            "tokens": [
+                {"token": "हवाई", "category": "text"},
+                {"token": "जहाज", "category": "text"},
+                {"token": "900kmph", "category": "unit"},
+                {"token": "की", "category": "text"},
+                {"token": "रफ्तार", "category": "text"},
+                {"token": "से", "category": "text"},
+                {"token": "उड़ता", "category": "text"},
+                {"token": "है", "category": "text"}
+            ]
+        },
+        {
+            "text": "रात 11:30 बजे सब सो गए",
+            "tokens": [
+                {"token": "रात", "category": "text"},
+                {"token": "11:30", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "सब", "category": "text"},
+                {"token": "सो", "category": "text"},
+                {"token": "गए", "category": "text"}
+            ]
+        },
+        {
+            "text": "6ठा सवाल सबसे कठिन था",
+            "tokens": [
+                {"token": "6ठा", "category": "ordinal"},
+                {"token": "सवाल", "category": "text"},
+                {"token": "सबसे", "category": "text"},
+                {"token": "कठिन", "category": "text"},
+                {"token": "था", "category": "text"}
+            ]
+        },
+        {
+            "text": "Km. अनिता ने 10:00 बजे ₹300 का टिकट लिया",
+            "tokens": [
+                {"token": "Km.", "category": "named_entity"},
+                {"token": "अनिता", "category": "text"},
+                {"token": "ने", "category": "text"},
+                {"token": "10:00", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "₹300", "category": "currency"},
+                {"token": "का", "category": "text"},
+                {"token": "टिकट", "category": "text"},
+                {"token": "लिया", "category": "text"}
+            ]
+        },
+        {
+            "text": "बच्चे ने 100m दौड़ 15 सेकंड में पूरी की",
+            "tokens": [
+                {"token": "बच्चे", "category": "text"},
+                {"token": "ने", "category": "text"},
+                {"token": "100m", "category": "unit"},
+                {"token": "दौड़", "category": "text"},
+                {"token": "15", "category": "cardinal"},
+                {"token": "सेकंड", "category": "text"},
+                {"token": "में", "category": "text"},
+                {"token": "पूरी", "category": "text"},
+                {"token": "की", "category": "text"}
+            ]
+        },
+        {
+            "text": "₹999 में 500GB हार्ड डिस्क मिली",
+            "tokens": [
+                {"token": "₹999", "category": "currency"},
+                {"token": "में", "category": "text"},
+                {"token": "500GB", "category": "unit"},
+                {"token": "हार्ड", "category": "text"},
+                {"token": "डिस्क", "category": "text"},
+                {"token": "मिली", "category": "text"}
+            ]
+        },
+        {
+            "text": "09/09/2024 को 9वीं कक्षा का रिजल्ट आएगा",
+            "tokens": [
+                {"token": "09/09/2024", "category": "date"},
+                {"token": "को", "category": "text"},
+                {"token": "9वीं", "category": "ordinal"},
+                {"token": "कक्षा", "category": "text"},
+                {"token": "का", "category": "text"},
+                {"token": "रिजल्ट", "category": "text"},
+                {"token": "आएगा", "category": "text"}
+            ]
+        },
+        {
+            "text": "Sr. इंजीनियर को ₹75000 मिलते हैं",
+            "tokens": [
+                {"token": "Sr.", "category": "named_entity"},
+                {"token": "इंजीनियर", "category": "text"},
+                {"token": "को", "category": "text"},
+                {"token": "₹75000", "category": "currency"},
+                {"token": "मिलते", "category": "text"},
+                {"token": "हैं", "category": "text"}
+            ]
+        },
+        {
+            "text": "गर्मी में तापमान 48°C तक पहुँच गया",
+            "tokens": [
+                {"token": "गर्मी", "category": "text"},
+                {"token": "में", "category": "text"},
+                {"token": "तापमान", "category": "text"},
+                {"token": "48°C", "category": "unit"},
+                {"token": "तक", "category": "text"},
+                {"token": "पहुँच", "category": "text"},
+                {"token": "गया", "category": "text"}
+            ]
+        },
+        {
+            "text": "सुबह 5:30 बजे योग करो",
+            "tokens": [
+                {"token": "सुबह", "category": "text"},
+                {"token": "5:30", "category": "time"},
+                {"token": "बजे", "category": "text"},
+                {"token": "योग", "category": "text"},
+                {"token": "करो", "category": "text"}
+            ]
+        },
+        {
+            "text": "मैंने 3 किताबें और 2 कॉपी खरीदीं",
+            "tokens": [
+                {"token": "मैंने", "category": "text"},
+                {"token": "3", "category": "cardinal"},
+                {"token": "किताबें", "category": "text"},
+                {"token": "और", "category": "text"},
+                {"token": "2", "category": "cardinal"},
+                {"token": "कॉपी", "category": "text"},
+                {"token": "खरीदीं", "category": "text"}
+            ]
+        }
+    ]
+}
