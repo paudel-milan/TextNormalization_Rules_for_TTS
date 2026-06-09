@@ -1,0 +1,126 @@
+{
+    "language": "kn-IN-belgaum",
+    "version": "1.0",
+    "samples": [
+        {
+            "text": "ಅವನು ₹500 ಕೊಟ್ಟು ಪುಸ್ತಕ ಕೊಂಡನು",
+            "tokens": [
+                {"token": "ಅವನು", "category": "text"},
+                {"token": "₹500", "category": "currency"},
+                {"token": "ಕೊಟ್ಟು", "category": "text"},
+                {"token": "ಪುಸ್ತಕ", "category": "text"},
+                {"token": "ಕೊಂಡನು", "category": "text"}
+            ]
+        },
+        {
+            "text": "ಸಭೆಯು 15/08/2024 ರಂದು 10:30 ಗಂಟೆಗೆ ನಡೆಯಲಿದೆ",
+            "tokens": [
+                {"token": "ಸಭೆಯು", "category": "text"},
+                {"token": "15/08/2024", "category": "date"},
+                {"token": "ರಂದು", "category": "text"},
+                {"token": "10:30", "category": "time"},
+                {"token": "ಗಂಟೆಗೆ", "category": "text"},
+                {"token": "ನಡೆಯಲಿದೆ", "category": "text"}
+            ]
+        },
+        {
+            "text": "ಡಾ. ಶರ್ಮ ಅವರು 5kg ಅಕ್ಕಿ ತಂದರು",
+            "tokens": [
+                {"token": "ಡಾ.", "category": "named_entity"},
+                {"token": "ಶರ್ಮ", "category": "text"},
+                {"token": "ಅವರು", "category": "text"},
+                {"token": "5kg", "category": "unit"},
+                {"token": "ಅಕ್ಕಿ", "category": "text"},
+                {"token": "ತಂದರು", "category": "text"}
+            ]
+        },
+        {
+            "text": "ಅವಳು 1st ಬಹುಮಾನ ಪಡೆದಳು",
+            "tokens": [
+                {"token": "ಅವಳು", "category": "text"},
+                {"token": "1st", "category": "ordinal"},
+                {"token": "ಬಹುಮಾನ", "category": "text"},
+                {"token": "ಪಡೆದಳು", "category": "text"}
+            ]
+        },
+        {
+            "text": "ನನ್ನ ಬಳಿ 25 ಪುಸ್ತಕಗಳು ಇವೆ",
+            "tokens": [
+                {"token": "ನನ್ನ", "category": "text"},
+                {"token": "ಬಳಿ", "category": "text"},
+                {"token": "25", "category": "cardinal"},
+                {"token": "ಪುಸ್ತಕಗಳು", "category": "text"},
+                {"token": "ಇವೆ", "category": "text"}
+            ]
+        },
+        {
+            "text": "ಶ್ರೀ ರಮೇಶ್ ಅವರು 25/12/2024 ರಂದು ಬರುತ್ತಾರೆ",
+            "tokens": [
+                {"token": "ಶ್ರೀ", "category": "named_entity"},
+                {"token": "ರಮೇಶ್", "category": "text"},
+                {"token": "ಅವರು", "category": "text"},
+                {"token": "25/12/2024", "category": "date"},
+                {"token": "ರಂದು", "category": "text"},
+                {"token": "ಬರುತ್ತಾರೆ", "category": "text"}
+            ]
+        },
+        {
+            "text": "ರೈಲು ಮುಂಜಾವ 6:45 ಗಂಟೆಗೆ ಬರುತ್ತದೆ",
+            "tokens": [
+                {"token": "ರೈಲು", "category": "text"},
+                {"token": "ಮುಂಜಾವ", "category": "text"},
+                {"token": "6:45", "category": "time"},
+                {"token": "ಗಂಟೆಗೆ", "category": "text"},
+                {"token": "ಬರುತ್ತದೆ", "category": "text"}
+            ]
+        },
+        {
+            "text": "ಬೆಂಗಳೂರಿನಿಂದ ಮೈಸೂರು 150km ದೂರವಿದೆ",
+            "tokens": [
+                {"token": "ಬೆಂಗಳೂರಿನಿಂದ", "category": "text"},
+                {"token": "ಮೈಸೂರು", "category": "text"},
+                {"token": "150km", "category": "unit"},
+                {"token": "ದೂರವಿದೆ", "category": "text"}
+            ]
+        },
+        {
+            "text": "ಅವರು 5ನೇ ಮಹಡಿಯಲ್ಲಿ ವಾಸಿಸುತ್ತಿದ್ದಾರೆ",
+            "tokens": [
+                {"token": "ಅವರು", "category": "text"},
+                {"token": "5ನೇ", "category": "ordinal"},
+                {"token": "ಮಹಡಿಯಲ್ಲಿ", "category": "text"},
+                {"token": "ವಾಸಿಸುತ್ತಿದ್ದಾರೆ", "category": "text"}
+            ]
+        },
+        {
+            "text": "₹1000 ಬೆಲೆಯ 2kg ಸೇಬು ತಂದೆ",
+            "tokens": [
+                {"token": "₹1000", "category": "currency"},
+                {"token": "ಬೆಲೆಯ", "category": "text"},
+                {"token": "2kg", "category": "unit"},
+                {"token": "ಸೇಬು", "category": "text"},
+                {"token": "ತಂದೆ", "category": "text"}
+            ]
+        },
+        {
+            "text": "ಈ ಪೆಟ್ಟಿಗೆಯಲ್ಲಿ 10 ಪೆನ್ನುಗಳು ಇವೆ",
+            "tokens": [
+                {"token": "ಈ", "category": "text"},
+                {"token": "ಪೆಟ್ಟಿಗೆಯಲ್ಲಿ", "category": "text"},
+                {"token": "10", "category": "cardinal"},
+                {"token": "ಪೆನ್ನುಗಳು", "category": "text"},
+                {"token": "ಇವೆ", "category": "text"}
+            ]
+        },
+        {
+            "text": "ಮಧ್ಯಾಹ್ನ 2:00 ಗಂಟೆಗೆ ಊಟ ಮಾಡಿ",
+            "tokens": [
+                {"token": "ಮಧ್ಯಾಹ್ನ", "category": "text"},
+                {"token": "2:00", "category": "time"},
+                {"token": "ಗಂಟೆಗೆ", "category": "text"},
+                {"token": "ಊಟ", "category": "text"},
+                {"token": "ಮಾಡಿ", "category": "text"}
+            ]
+        }
+    ]
+}

@@ -16,7 +16,10 @@ except ImportError:
 
 try:
     from sklearn.linear_model import LogisticRegression
-    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+    from sklearn.svm import SVC
+    from sklearn.neural_network import MLPClassifier
+    from sklearn.feature_extraction import DictVectorizer
     HAS_SKLEARN = True
 except ImportError:
     HAS_SKLEARN = False
@@ -41,6 +44,9 @@ class CategoryClassifier:
         - logistic_regression (default, lightweight)
         - random_forest
         - xgboost (requires xgboost package)
+        - gradient_boosting
+        - svm
+        - mlp
 
     The interface is designed so that a TransformerClassifier
     (IndicBERT/XLM-R) can be a drop-in replacement.
@@ -51,7 +57,10 @@ class CategoryClassifier:
         'phone_number', 'unit', 'named_entity', 'text',
     ]
 
-    SUPPORTED_MODELS = ['logistic_regression', 'random_forest', 'xgboost']
+    SUPPORTED_MODELS = [
+        'logistic_regression', 'random_forest', 'xgboost',
+        'gradient_boosting', 'svm', 'mlp',
+    ]
 
     def __init__(self, model_type='logistic_regression'):
         if not HAS_SKLEARN:
@@ -63,6 +72,7 @@ class CategoryClassifier:
         self.model_type = model_type
         self.model = self._create_model(model_type)
         self.feature_names = []
+        self.vectorizer = None
         self.is_trained = False
 
     def _create_model(self, model_type):
@@ -81,6 +91,30 @@ class CategoryClassifier:
                 max_depth=10,
                 class_weight='balanced',
                 random_state=42,
+            )
+        elif model_type == 'gradient_boosting':
+            return GradientBoostingClassifier(
+                n_estimators=100,
+                max_depth=4,
+                learning_rate=0.1,
+                random_state=42,
+            )
+        elif model_type == 'svm':
+            return SVC(
+                kernel='linear',
+                C=1.0,
+                probability=True,
+                class_weight='balanced',
+                random_state=42,
+            )
+        elif model_type == 'mlp':
+            return MLPClassifier(
+                hidden_layer_sizes=(128, 64),
+                max_iter=1000,
+                alpha=0.01,
+                learning_rate_init=0.005,
+                random_state=42,
+                early_stopping=True,
             )
         elif model_type == 'xgboost':
             if not HAS_XGBOOST:
@@ -107,11 +141,15 @@ class CategoryClassifier:
         Train the classifier.
 
         Args:
-            X: Feature matrix (np.ndarray of shape [n_samples, n_features])
+            X: Feature matrix (np.ndarray or list of dicts)
             y: Category labels (list of str)
             feature_names: Optional list of feature names for interpretability
         """
-        if feature_names:
+        if isinstance(X, list) and len(X) > 0 and isinstance(X[0], dict):
+            self.vectorizer = DictVectorizer(sparse=False)
+            X = self.vectorizer.fit_transform(X)
+            self.feature_names = self.vectorizer.get_feature_names_out().tolist()
+        elif feature_names:
             self.feature_names = feature_names
 
         self.model.fit(X, y)
@@ -122,13 +160,20 @@ class CategoryClassifier:
         Predict categories with confidence scores.
 
         Args:
-            X: Feature matrix (np.ndarray of shape [n_samples, n_features])
+            X: Feature matrix (np.ndarray or list of dicts)
 
         Returns:
             List of dicts: [{'category': str, 'confidence': float, 'all_scores': dict}]
         """
         if not self.is_trained:
             raise RuntimeError("Model has not been trained yet. Call train() first.")
+
+        if isinstance(X, list) and len(X) > 0 and isinstance(X[0], dict):
+            if self.vectorizer:
+                X = self.vectorizer.transform(X)
+            else:
+                feature_names = self.feature_names or sorted(X[0].keys())
+                X = np.array([[fd.get(name, 0.0) for name in feature_names] for fd in X])
 
         predictions = self.model.predict(X)
         probabilities = self.model.predict_proba(X)
@@ -159,6 +204,9 @@ class CategoryClassifier:
         Returns:
             dict: {'category': str, 'confidence': float, 'all_scores': dict}
         """
+        if self.vectorizer:
+            return self.predict([features_dict])[0]
+
         names = feature_names or self.feature_names
         if not names:
             names = sorted(features_dict.keys())
@@ -186,6 +234,7 @@ class CategoryClassifier:
             'model_type': self.model_type,
             'feature_names': self.feature_names,
             'categories': self.CATEGORIES,
+            'vectorizer': self.vectorizer,
         }
         joblib.dump(data, filepath)
         return str(filepath)
@@ -214,6 +263,7 @@ class CategoryClassifier:
         self.model = data['model']
         self.model_type = data['model_type']
         self.feature_names = data['feature_names']
+        self.vectorizer = data.get('vectorizer')
         self.is_trained = True
 
     @classmethod

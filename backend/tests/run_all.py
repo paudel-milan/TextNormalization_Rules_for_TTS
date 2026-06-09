@@ -22,12 +22,13 @@ import test_time
 import test_ordinal
 import test_named_entity
 import test_nepali
+import test_kannada
 import test_mixed
 
 
 def main():
     print("\n" + "="*70)
-    print("Text Normalization — Full Test Suite (Hindi & Nepali)")
+    print("Text Normalization — Full Test Suite (Hindi, Nepali, Kannada)")
     print("="*70)
 
     test_currency.run()
@@ -38,6 +39,7 @@ def main():
     test_ordinal.run()
     test_named_entity.run()
     test_nepali.run()
+    test_kannada.run()
     test_mixed.run()
 
     print("\n✅ All tests completed successfully!\n")

@@ -61,21 +61,27 @@ class FeatureExtractor:
     - Pattern signatures (D/D/D for dates, D:D for times, etc.)
     """
 
-    def __init__(self):
+    def __init__(self, language='hi-IN'):
+        self.language = language
         self._context_vocab = set()
         self._fitted = False
+        # Import RuleBasedDetector inside __init__ to avoid circular dependency
+        from rule_engine.detector import RuleBasedDetector
+        self.detector = RuleBasedDetector(language=language)
 
-    def extract_single(self, token, prev_word='', next_word=''):
+    def extract_single(self, token, prev_word='', next_word='', prev2_word='', next2_word=''):
         """
         Extract features for a single token.
 
         Args:
-            token:     The token string to classify
-            prev_word: The word before this token (empty string if none)
-            next_word: The word after this token (empty string if none)
+            token:      The token string to classify
+            prev_word:  The word before this token (empty string if none)
+            next_word:  The word after this token (empty string if none)
+            prev2_word: The word two tokens before (empty string if none)
+            next2_word: The word two tokens after (empty string if none)
 
         Returns:
-            dict of feature_name -> float
+            dict of feature_name -> value (float or str)
         """
         features = {}
 
@@ -83,11 +89,29 @@ class FeatureExtractor:
         features['token_length'] = len(token)
         features['has_digits'] = float(bool(re.search(r'\d', token)))
         features['all_digits'] = float(token.isdigit())
-        features['has_alpha'] = float(bool(re.search(r'[a-zA-Z\u0900-\u097F\u0B80-\u0BFF\u0980-\u09FF]', token)))
+        features['has_alpha'] = float(bool(re.search(r'[a-zA-Z\u0900-\u097F\u0B80-\u0BFF\u0980-\u09FF\u0C00-\u0C7F]', token)))
 
-        # Digit ratio
+        # Character class counts and ratios (Unicode friendly)
         digit_count = sum(1 for c in token if c.isdigit())
+        alpha_count = sum(1 for c in token if c.isalpha())
+        punctuation_count = sum(1 for c in token if not c.isalnum() and not c.isspace())
+        
         features['digit_ratio'] = digit_count / max(len(token), 1)
+        features['alpha_ratio'] = alpha_count / max(len(token), 1)
+        features['punctuation_ratio'] = punctuation_count / max(len(token), 1)
+
+        # ── Suffix and Prefix n-grams (Categorical) ────────────────
+        features['token_suffix_1'] = token[-1:] if len(token) >= 1 else ''
+        features['token_suffix_2'] = token[-2:] if len(token) >= 2 else ''
+        features['token_suffix_3'] = token[-3:] if len(token) >= 3 else ''
+        features['token_prefix_1'] = token[:1] if len(token) >= 1 else ''
+        features['token_prefix_2'] = token[:2] if len(token) >= 2 else ''
+        features['token_prefix_3'] = token[:3] if len(token) >= 3 else ''
+
+        # Indic Digit check (Hindi, Kannada, Tamil)
+        features['has_hindi_digits'] = float(bool(re.search(r'[\u0966-\u096F]', token)))
+        features['has_kannada_digits'] = float(bool(re.search(r'[\u0DE6-\u0DEF]', token)))
+        features['has_tamil_digits'] = float(bool(re.search(r'[\u0BE6-\u0BEF]', token)))
 
         # ── Decimal / fraction patterns ───────────────────────────
         features['has_decimal'] = float('.' in token and bool(re.search(r'\d\.\d', token)))
@@ -145,13 +169,31 @@ class FeatureExtractor:
         # ── Pattern signature ─────────────────────────────────────
         # Convert token to abstract pattern: D=digit, L=letter, S=symbol
         pattern = self._get_pattern_signature(token)
+        features['pattern_signature'] = pattern
         features['pattern_has_DSD'] = float('D/D' in pattern or 'D-D' in pattern)
         features['pattern_has_DCD'] = float('D:D' in pattern)
         features['pattern_has_SD'] = float(
             pattern.startswith('S') and 'D' in pattern
         )
 
-        # ── Context features ──────────────────────────────────────
+        # ── Rule-Based Detector integration (highly reliable feature) ──
+        try:
+            detector_res = self.detector.detect(token)
+            features['rule_category'] = detector_res.get('category', 'text')
+        except Exception:
+            features['rule_category'] = 'text'
+
+        # ── Context features (Categorical & Numeric) ──────────────
+        features['prev_word'] = prev_word
+        features['prev2_word'] = prev2_word
+        features['next_word'] = next_word
+        features['next2_word'] = next2_word
+
+        features['prev_is_numeric'] = float(prev_word.isdigit())
+        features['prev2_is_numeric'] = float(prev2_word.isdigit())
+        features['next_is_numeric'] = float(next_word.isdigit())
+        features['next2_is_numeric'] = float(next2_word.isdigit())
+
         # Previous word context hints
         for cat, hints in CONTEXT_HINTS.items():
             features[f'prev_hint_{cat}'] = float(prev_word.lower() in hints)
@@ -178,8 +220,10 @@ class FeatureExtractor:
         results = []
         for i, token in enumerate(tokens):
             prev_word = tokens[i - 1] if i > 0 else ''
+            prev2_word = tokens[i - 2] if i > 1 else ''
             next_word = tokens[i + 1] if i < len(tokens) - 1 else ''
-            features = self.extract_single(token, prev_word, next_word)
+            next2_word = tokens[i + 2] if i < len(tokens) - 2 else ''
+            features = self.extract_single(token, prev_word, next_word, prev2_word, next2_word)
             results.append(features)
         return results
 
