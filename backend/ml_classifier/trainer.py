@@ -36,7 +36,7 @@ class ModelTrainer:
     def __init__(self, language='hi-IN', model_type='logistic_regression'):
         self.language = language
         self.model_type = model_type
-        self.feature_extractor = FeatureExtractor()
+        self.feature_extractor = FeatureExtractor(language=language)
         self.classifier = CategoryClassifier(model_type=model_type)
 
     def load_training_data(self):
@@ -62,13 +62,13 @@ class ModelTrainer:
 
     def prepare_features(self, samples):
         """
-        Convert training samples into feature matrix + labels.
+        Convert training samples into feature dictionaries + labels.
 
         Args:
             samples: List of sample dicts with 'text' and 'tokens' fields
 
         Returns:
-            (X, y, feature_names): feature matrix, labels, feature name list
+            (all_features, all_labels): list of feature dicts, list of labels
         """
         all_features = []
         all_labels = []
@@ -85,23 +85,22 @@ class ModelTrainer:
 
                 prev_word = words[i - 1] if i > 0 and i < len(words) else ''
                 next_word = words[i + 1] if i + 1 < len(words) else ''
+                prev2_word = words[i - 2] if i > 1 and i < len(words) else ''
+                next2_word = words[i + 2] if i + 2 < len(words) else ''
 
                 features = self.feature_extractor.extract_single(
-                    token, prev_word, next_word
+                    token, prev_word, next_word, prev2_word, next2_word
                 )
                 all_features.append(features)
                 all_labels.append(category)
 
-        X, feature_names = self.feature_extractor.features_to_matrix(all_features)
-        y = np.array(all_labels)
-
-        print(f"Prepared {len(all_labels)} token samples with {len(feature_names)} features")
+        print(f"Prepared {len(all_labels)} token samples")
         print(f"Category distribution:")
         for cat in sorted(set(all_labels)):
             count = all_labels.count(cat)
             print(f"  {cat}: {count} ({100 * count / len(all_labels):.1f}%)")
 
-        return X, y, feature_names
+        return all_features, all_labels
 
     def train_and_evaluate(self):
         """
@@ -117,27 +116,28 @@ class ModelTrainer:
         samples = self.load_training_data()
 
         # Step 2: Extract features
-        X, y, feature_names = self.prepare_features(samples)
+        features, y = self.prepare_features(samples)
 
-        if len(X) < 10:
+        if len(features) < 10:
             print("WARNING: Very few training samples. Model quality will be low.")
 
         # Step 3: Train/test split
-        if len(X) >= 20:
-            X_train, X_test, y_train, y_test = train_test_split(
-                X, y, test_size=0.2, random_state=42, stratify=y
+        if len(features) >= 20:
+            features_train, features_test, y_train, y_test = train_test_split(
+                features, y, test_size=0.2, random_state=42, stratify=y
             )
         else:
             # Too few samples to split — train on all
-            X_train, X_test = X, X
+            features_train, features_test = features, features
             y_train, y_test = y, y
 
-        # Step 4: Train
+         # Step 4: Train
         print(f"\nTraining {self.model_type} classifier...")
-        self.classifier.train(X_train, y_train, feature_names=feature_names)
+        self.classifier.train(features_train, y_train)
 
         # Step 5: Evaluate
-        y_pred = self.classifier.model.predict(X_test)
+        y_pred_dicts = self.classifier.predict(features_test)
+        y_pred = [res['category'] for res in y_pred_dicts]
         accuracy = accuracy_score(y_test, y_pred)
         report = classification_report(y_test, y_pred, zero_division=0)
 
@@ -158,9 +158,9 @@ class ModelTrainer:
         return {
             'accuracy': accuracy,
             'report': report,
-            'n_train': len(X_train),
-            'n_test': len(X_test),
-            'n_features': len(feature_names),
+            'n_train': len(features_train),
+            'n_test': len(features_test),
+            'n_features': len(self.classifier.feature_names),
             'feature_importance': importance[:10] if importance else [],
         }
 

@@ -51,7 +51,7 @@ class HybridEngine:
         self.rule_detector = RuleBasedDetector(language=language)
 
         # ── ML classifier ─────────────────────────────────────────
-        self.feature_extractor = FeatureExtractor()
+        self.feature_extractor = FeatureExtractor(language=language)
         self.ml_classifier = None
         self.ml_available = False
         self._load_ml_model(model_type)
@@ -153,8 +153,7 @@ class HybridEngine:
         ml_results = []
         if self.ml_available and self.ml_classifier:
             feature_dicts = self.feature_extractor.extract_batch(words)
-            X, feature_names = self.feature_extractor.features_to_matrix(feature_dicts)
-            ml_predictions = self.ml_classifier.predict(X)
+            ml_predictions = self.ml_classifier.predict(feature_dicts)
             ml_results = ml_predictions
         else:
             # No ML model available — fill with empty predictions
